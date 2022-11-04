@@ -6,8 +6,7 @@ import shareVideo from "../assets/share.mp4";
 import Logo from "../assets/logo.png";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
-// import { newClient } from "../sanityApi/client";
-import { newClient } from "../sanityApi/client";
+import { Client } from "../sanityApi/client";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,7 +33,7 @@ const Login = () => {
       image: imageUrl,
     };
 
-    newClient.createIfNotExists(doc).then(() => {
+    Client.createIfNotExists(doc).then(() => {
       navigate("/", { replace: true });
     });
   };
